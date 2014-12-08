@@ -7,11 +7,25 @@
       p {
         font-size: 16pt;
       }
+
+      .grow {
+        -webkit-animation-name: grow;
+          -webkit-animation-duration: 3s;
+          -webkit-animation-timing-function: ease-out; 
+          -webkit-animation-iteration-count: 1;
+      }
+
+      @-webkit-keyframes grow {
+           0% {font-size: 16pt; }
+           50% {font-size: 24pt; }
+           100% {font-size: 16pt; }
+        }
+    
     </style>
 
     <p>Hello World!</p>
 
-    <p>My name is: {{firstName}} {{lastName}}</p>
+    <p id="name">My name is: {{firstName}} {{lastName}}</p>
   </template>
   <script>
     Polymer({
@@ -35,7 +49,7 @@
        * animate is defined in th-animated and can be called immediately or after a certain amount of time. It animates the element in some way.
        */
       animate: function(){
-        // Manipulate the element to show animation here.
+        this.$.name.classList.add('grow');
       }
     });
 
