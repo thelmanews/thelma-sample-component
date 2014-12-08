@@ -1,0 +1,44 @@
+<link rel="import" href="../../../../polymer/polymer.html">
+<link rel="import" href="../../../../th-animated/th-animated.html">
+
+<polymer-element extends="th-animated" name="th-sample-component" attributes="firstName lastName">
+  <template>
+    <style>
+      p {
+        font-size: 16pt;
+      }
+    </style>
+
+    <p>Hello World!</p>
+
+    <p>My name is: {{firstName}} {{lastName}}</p>
+  </template>
+  <script>
+    Polymer({
+      firstName: "foo", // If no other value for firstName is given, it will be 'foo'
+      lastName: "bar",  // If no other value for lastName is given, it will be 'bar'
+      /**
+       * 'ready' is a lifecycle callback defined by Polymer that is called when the component has been loaded and is ready
+       */
+      ready: function(){
+        // 'this' is a reference to the component
+        this.sayMyName();
+      },
+      /**
+       * 'sayMyName' prints the components first and last name to the console
+       */
+      sayMyName: function(){
+        console.log(this.firstName + " " + this.lastName); 
+        // prints "foo bar" to the console
+      },
+      /**
+       * animate is defined in th-animated and can be called immediately or after a certain amount of time. It animates the element in some way.
+       */
+      animate: function(){
+        // Manipulate the element to show animation here.
+      }
+    });
+
+  </script>
+
+</polymer-element>

@@ -1,0 +1,32 @@
+<link rel="import" href="../../../../polymer/polymer.html">
+
+<polymer-element name="th-sample-component" attributes="firstName lastName">
+  <template>
+    <style>
+      p {
+        font-size: 16pt;
+      }
+    </style>
+
+    <p>Hello World!</p>
+
+    <p>My name is: {{firstName}} {{lastName}}</p>
+  </template>
+  <script>
+    Polymer({
+      firstName: "foo", // If no other value for firstName is given, it will be 'foo'
+      lastName: "bar",  // If no other value for lastName is given, it will be 'bar'
+      ready: function(){
+        // 'ready' is a lifecycle callback defined by Polymer that is called when the component has been loaded and is ready.
+        // 'this' is a reference to the component
+        this.sayMyName();
+      },
+      sayMyName: function(){
+        console.log(this.firstName + " " + this.lastName); 
+        // prints "foo bar" to the console
+      }
+    });
+
+  </script>
+
+</polymer-element>
